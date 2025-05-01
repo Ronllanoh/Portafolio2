@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto - Segmentación Clientes</title>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">DevFolio</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Inicio<br></a></li>
+          <li><a href="index.html #about">Sobre Mí</a></li>
+          <li><a href="index.html #services">Portafolio</a></li>
+          <li><a href="index.html #contact">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <header class="container text-center my-5">
+    <h1>Machine Learning - Aprendizaje No Supervisado</h1>
+  </header>
+
+  <main class="container">
+
+    <section class="my-1">
+      <h2>Resumen del Proyecto</h2>
+      <p>Aplicación de modelo de aprendizaje no supervisado para segmentación de datos sin etiquetar. En este caso, aplicaremos el 
+        modelo de Machine Learning KMeans para realizar la segmentación de clientes de una compañía distribuidora de productos de consumo masivo. 
+        La data se compone de las ventas a nivel de producto con la siguiente estructura:</p>
+        <ul>
+          <li>ID_Invoice: Factura interna</li>
+          <li>SKU_Codigo: Código interno del SKU</li>
+          <li>Fecha factura: Fecha de emisión del documento tributario</li>
+          <li>Cantidad: Cantidad vendida del SKU</li>
+          <li>Valor Neto: Monto total neto de la venta (Descuento ya aplicado)</li>
+          <li>IVA: Impuesto Valor Agregado</li>
+          <li>Total Invoice: Monto total bruto</li>
+          <li>Sucursal: Local de venta</li>
+          <li>Canal: Canal de venta</li>
+          <li>NIF_Cliente: NIF cliente</li>
+          <li>Marca: Marca del producto</li>
+        </ul>
+        <p>La principal razón de utilizar este modelo, es porque no tenemos datos etiquetados previamente (clasificados), por lo que a partir de 
+          las variables y de ciertas caracteristicas realizaremos la segmentación. El objetivo es poder clasificar cada cliente que realizó compras 
+          durante un año calendario, por lo que en base a la clasificación que obtendremos la compañía podrá tomar decisiones de marketing como 
+          lanzamiento de promociones a cierto grupo de clientes, crear y/o modificar alguna política de descuentos, identificar potenciales 
+          clientes VIP para fidelizarlos o recuperar clientes perdidos.</p>
+        <ul>
+          <li>Las variables a utilizar serán creadas a partir de la data historica de ventas y se tomarán tres caracteristicas para crear una tabla RFM.</li>
+          <li>Recency: Cantidad de días desde la última compra</li>
+          <li>Frequency: Cantidad de veces que el cliente ha realizado una compra</li>
+          <li>Monetary: Valor monetario de las compras (Monto Neto).</li>
+        </ul>
+    </section>
+
+    <section class="my-1">
+      <h2>Objetivos</h2>
+      <ul>
+        <li>Realizar análisis estadistico de los datos</li>
+        <li>Aplicar modelo KMEANS para crear segmentos.</li>
+        <li>Detectar el número de cluster apropiado.</li>
+        <li>Evaluación del modelo aplicado mediante Score de Silhoutte.</li>
+        <li>Segmentar a los clientes según su comportamiento en las compras en los últimos 18 meses</li>
+        <li>Detectar a los clientes perdidos.</li>
+        <li>Identificar clientes fidelizados</li>
+        <li>Potenciar a posibles clientes regulares</li>
+      </ul>
+    </section>
+
+    <section class="my-1">
+      <h2>Herramientas Utilizadas</h2>
+      <ul>
+        <li><strong>Lenguajes / Librerías:</strong> Python (Pandas, Seaborn, Matplotlib, Plotly, Scikit-learn)</li>
+              <li><strong>Código GitHub:</strong> 
+                <a href="https://github.com/Ronllanoh/Machine_Learning_Segmentacion_Clientes/blob/main/Clientes_KMeans_Github.ipynb" target="_blank" style="color: black; text-decoration: underline;">
+                  Ver Notebook en GitHub
+                </a>
+        </li>
+      </ul>
+    </section>
+
+
+    <section class="my-1">
+      <h2 class="text-center mb-4">Explicación del Proyecto</h2>
+    
+      <!-- Bloque de texto general arriba -->
+      <div class="container mb-1">
+        <h3>1.- Datos relevantes del análisis exploratorio:</h3>
+        <ul>
+          <li>Cantidad de Canales: 1</li>
+          <li>Cantidad de Sucursales: 16</li>
+          <li>Cantidad de Clientes: 12.806</li>
+          <li>Cantidad de Productos: 18.822</li>
+          <li>Tamaño del set de datos: 181.232 registros</li>
+        </ul>
+        <p>Visualización de los datos de la Tabla RFM (Recency, Frequency y Monetary)</p>
+      </div>
+    
+      <!-- Nuevo bloque: texto + imagen lado a lado -->
+      <div class="container">
+        <div class="row align-items-center">
+    
+          <!-- Columna izquierda: Texto adicional -->
+          <div class="col-md-6 mb-4">
+            <h3>2.- ¿Qué muestran los gráficos RFM?</h3>
+            <p>
+              Los boxplots representan la distribución de las tres métricas clave:
+              <ul>
+                <li><strong>Recency:</strong> Días desde la última compra del cliente.</li>
+                <li><strong>Frequency:</strong> Número de compras realizadas.</li>
+                <li><strong>Monetary:</strong> Valor monetario total de las compras.</li>
+              </ul>
+            <p>
+              En los gráficos de caja se visualiza lo siguiente:</p>
+              <ul>
+                <li><strong>Recency:</strong> Distribución bastante equilibrada, sin valores extremos muy significativos. Aunque tiene algo de dispersión, no hay tantos outliers evidentes. Conclusión: No es necesario aplicar transformación.</li>
+                <li><strong>Frequency:</strong> Alta concentración de valores pequeños (sesgo positivo extremo). Muchos outliers, lo que indica que hay clientes con compras muy frecuentes. 
+                Conclusión: Necesita transformación logarítmica para reducir la asimetría y mejorar la segmentación.</li>
+                <li><strong>Monetary:</strong> Distribución extremadamente sesgada a la derecha, con valores extremos que están muy alejados del resto. 
+                Algunos clientes tienen montos de gasto enormemente superiores al promedio. Necesita transformación logarítmica para reducir el impacto de los valores extremos y mejorar la estabilidad del modelo.</li>
+              </ul>
+            </p>
+          </div>
+          <!-- Columna derecha: Imagen -->
+          <div class="col-md-6 mb-4 d-flex justify-content-center">
+            <img src="assets/img/portfolio/variables-rfm.jpg" 
+                alt="Visualización de Variables RFM" 
+                class="img-fluid rounded" 
+                style="max-width: 100%; height: auto; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+      </div>
+      
+      <div class="container my-1">
+        <h3 class="text-center mb-4">3.- Distribuciones de las variables de la tabla RFM</h3>
+        <!-- Imagen centrada arriba -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-8 d-flex justify-content-center">
+            <img src="assets/img/portfolio/distribucion-rfm.jpg" 
+                alt="Visualización de Variables RFM" 
+                class="img-fluid rounded" 
+                style="max-width: 100%; height: auto; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <!-- Texto debajo -->
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <p>Análisis de distribución de variables:</p>
+            <ul>
+              <li><strong>Recency:</strong> Tiene una distribución moderadamente sesgada hacia la derecha, pero no es tan extrema como las otras dos variables.</li>
+              <li><strong>Frequency:</strong> Altamente sesgada.  La mayoría de los clientes tienen valores bajos y pocos tienen valores altos. Necesita transformación logarítmica</li>
+              <li><strong>Monetary:</strong> Extremadamente sesgada, con valores muy altos en algunos clientes, por lo que será necesario aplicar una transformación logarítmica para reducir el impacto de outliers.</li>
+            </ul>
+      
+            <p>Debido a la alta asimetría observada especialmente en las variables Frequency y Monetary, será necesario aplicar una transformación logarítmica para 
+              estabilizar la varianza, reducir el impacto de valores extremos y facilitar una segmentación más efectiva de los clientes.</p>
+
+            <p>¿Por qué utilizar la transformación logarítmica?:</p>
+            <ul>
+              <li> Clientes que compran 1 vez y clientes que compran 1000 veces están en la misma escala, los algoritmos se distorsionan.</li>
+              <li> Clientes que gastan 10.000 y clientes que gastan 1.000.000.000 parecen "iguales" en distancia, por lo tanto los grupos no son reales.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container my-1">
+        <h3 class="text-center mb-4">4.- Distribuciones de las variables de la tabla RFM despues de aplicar transformación logarítmica</h3>
+        <!-- Imagen centrada arriba -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-8 d-flex justify-content-center">
+            <img src="assets/img/portfolio/distribucion-rfm-logaritmica.jpg" 
+                alt="Visualización de Variables RFM" 
+                class="img-fluid rounded" 
+                style="max-width: 100%; height: auto; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <!-- Texto debajo -->
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <p>Análisis de distribución de variables transformadas:</p>
+            <ul>
+              <li><strong>Recency:</strong> Aunque la transformación suavizó un poco la distribución, sigue presentando una forma algo asimétrica.</li>
+              <li><strong>Frequency:</strong> La transformación logarítmica ayudó, pero sigue estando bastante sesgada a la izquierda. Esto sugiere 
+                que hay muchos clientes que han comprado solo una o pocas veces.</li>
+              <li><strong>Monetary:</strong> Despues de aplicar la transformación, la variable tiene una distribución más normalizada. 
+                En este caso, la transformación logarítmica fue efectiva..</li>
+            </ul>
+      
+            <p>La transformación logarítmica se aplicó para estabilizar la varianza, reducir el impacto de valores extremos y mejorar la simetría de las distribuciones, 
+              facilitando así el análisis segmentado de clientes mediante técnicas de agrupamiento o modelado predictivo.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="container my-1">
+        <h3 class="text-center mb-4">5.- Evaluación de la cantidad de cluster</h3>
+
+        <p>Una vez realizadas las transformaciones necesarias para estabilizar las variables, se procedió a 
+          determinar el número óptimo de clusters para segmentar a los clientes de manera efectiva. Para ello, 
+          se aplicó el método del codo, una técnica gráfica ampliamente utilizada en procesos de agrupamiento como 
+          K-Means.
+
+          El método del codo consiste en graficar el número de clusters (k) en el eje X contra la suma de los 
+          errores cuadráticos dentro de los clusters (WCSS) en el eje Y. A medida que se incrementa el número de 
+          clusters, la inercia o dispersión de los datos disminuye, ya que cada punto se encuentra más cerca del 
+          centro de su grupo. Sin embargo, esta reducción de la inercia no es lineal. Al inicio disminuye de 
+          manera significativa, pero llega un punto donde agregar más clusters no genera mejoras sustanciales.
+          
+          Este punto de quiebre en la curva es conocido como el "codo", y representa el número óptimo de clusters. 
+          En este punto, se logra un balance adecuado entre simplicidad y precisión, evitando tanto la agrupación 
+          insuficiente como el sobreajuste.
+          
+          Aplicar el método del codo permite identificar la estructura natural de los datos, y así mantener la 
+          interpretabilidad de los segmentos obtenidos. De esta forma, la segmentación resultante es más robusta 
+          y ofrece un mayor valor analítico para la toma de decisiones estratégicas.</p>
+
+        <!-- Imagen centrada arriba -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-8 d-flex justify-content-center">
+            <img src="assets/img/portfolio/metodo-del-codo.jpg" 
+                alt="Visualización de Variables RFM" 
+                class="img-fluid rounded" 
+                style="max-width: 100%; height: auto; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <!-- Texto debajo -->
+        <div class="row justify-content-center">
+          <div class="col-md-15">
+            <p>Análisis del método del codo:</p>
+      
+            <p>El gráfico muestra la inercia en función del número de clusters (K). Lo que podemos interpretar es que la inercia baja rápidamente 
+              entre K=2 y K=5, lo que indica que agregar más clusters mejora bastante la segmentación. A partir de K=5 o K=6, la pendiente empieza 
+              a disminuir, lo que sugiere que los beneficios de agregar más clusters son menores. El "codo" más evidente parece estar en K=5 o K=6, 
+              lo que sugiere que uno de estos valores podría ser el más adecuado.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container my-1">
+        <h3 class="text-center mb-4">6.- Visualización de Resultados post aplicación del modelo KMEANS</h3>
+        <h3 class="mb-4">6.1- Visualización de Recency y Frequency</h3>
+        <!-- Imagen centrada arriba -->
+        <div class="d-flex justify-content-center">
+          <iframe 
+            src="assets/img/portfolio/grafico-clusters-kmeans.html" 
+            width="900px" 
+            height="550px" 
+            frameborder="0" 
+            allowfullscreen
+            style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+          ></iframe>
+        </div>
+
+
+        <div class="container my-4">
+          <h3 class="mb-4">6.2- Visualización de Frenquency y Monetary</h3>
+          <!-- Imagen centrada arriba -->
+          <div class="d-flex justify-content-center">
+            <iframe 
+              src="assets/img/portfolio/grafico_monetary_frequency.html" 
+              width="900px" 
+              height="550px" 
+              frameborder="0" 
+              allowfullscreen
+              style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+            ></iframe>
+          </div>
+
+        <div class="container my-4">
+          <h3 class="mb-4">6.3- Visualización de BoxPlot Frequency por Cluster</h3>
+          <!-- Imagen centrada arriba -->
+          <div class="d-flex justify-content-center">
+            <iframe 
+              src="assets/img/portfolio/grafico-boxplot-frequency-cluster.html" 
+              width="900px" 
+              height="550px" 
+              frameborder="0" 
+              allowfullscreen
+              style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+            ></iframe>
+          </div>
+
+        
+          <div class="container my-4">
+            <h3 class="mb-4">6.4- Visualización de Frequency por Cluster</h3>
+            <!-- Imagen centrada arriba -->
+            <div class="d-flex justify-content-center">
+              <iframe 
+                src="assets/img/portfolio/grafico_segmentos.html" 
+                width="990px" 
+                height="550px" 
+                frameborder="0" 
+                allowfullscreen
+                style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+              ></iframe>
+            </div>
+        
+          <div class="container my-4">
+            <h3 class="mb-4">6.5- Tabla resumen de Clusters</h3>
+            <!-- Imagen centrada arriba -->
+            <div class="d-flex justify-content-center">
+              <iframe 
+                src="assets/img/portfolio/tabla_rfm_kmeans.jpg" 
+                width="500px" 
+                height="250px" 
+                frameborder="0" 
+                allowfullscreen
+                style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+              ></iframe>
+            </div>
+            <!-- Análisis en texto -->
+          <div class="mt-4">
+            <h5>Análisis por Cluster:</h5>
+            <ul>
+              <li><strong>Cliente VIP:</strong> Son los más activos y los que más gastan. Segmento de alto valor, ideal para fidelizar con beneficios exclusivos.</li>
+              <li><strong>Cliente Regular:</strong> Compran con frecuencia y gastan bien. Con estímulos adecuados, podrían convertirse en clientes VIP.</li>
+              <li><strong>Cliente Frecuente:</strong> Han comprado con cierta regularidad, pero hace tiempo que no lo hacen. Buen objetivo para campañas de reactivación.</li>
+              <li><strong>Cliente Perdido:</strong> Casi no compran y gastan poco. Segmento en riesgo que requiere estrategias de recuperación específicas.</li>
+              <li><strong>Cliente Ocasional:</strong> Compras esporádicas y gasto bajo. Pueden activarse con promociones o incentivos dirigidos.</li>
+            </ul>
+          </div>
+        </div>
+
+          
+      
+    
+    </section>
+    
+
+  </main>
+
+  <footer class="text-center py-4">
+    <p>&copy; 2025 Ronald Llano - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

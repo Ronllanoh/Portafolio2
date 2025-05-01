@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto - Retención de Clientes</title>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">DevFolio</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Inicio<br></a></li>
+          <li><a href="index.html #about">Sobre Mí</a></li>
+          <li><a href="index.html #services">Portafolio</a></li>
+          <li><a href="index.html #contact">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <header class="container text-center my-1">
+    <h1>Análisis de Cohort de Retención de Clientes</h1>
+    <p class="lead">El análisis de retención de cohortes es fundamental para monitorear con precisión el 
+      comportamiento de los usuarios. En este caso lo vamos utilizar para identificar con precisión 
+      cuando se adquirieron los clientes y observaremos su retención a lo largo del año 2023 por cuartos.
+      </p>
+  </header>
+
+  <main class="container">
+
+    <section class="my-1">
+      <h2>Resumen del Proyecto</h2>
+      <p>El siguiente dataset contiene la venta de una compañía de retail que se dedica a la comercialización de productos 
+        de consumo masivo.</p>
+      <ul>
+        <li>Descripción de los Datos:</li>
+        <li>Invoice_Interno: ID de invoice</li>
+        <li>Codigo SKU: Código interno del SKU</li>
+        <li>Fecha: Fecha de emisión de invoice</li>
+        <li>Valor Neto: Venta Neta</li>
+        <li>IVA: Impuesto</li>
+        <li>Total DTE: Venta Bruta</li>
+        <li>Costo Venta Total: Costo de Venta</li>
+        <li>Sucursal: Sucursal donde se realizó la venta</li>
+        <li>Canal: Canal de distribución (Mayoristas o Mesón)</li>
+        <li>Grupo Cliente: Grupo de cliente asignado a cada cliente</li>
+        <li>NIF_Cliente: NIF del cliente</li>
+        <li>Año: Año que se realizó la transacción</li>
+      </ul>
+    </section>
+
+    <section class="my-1">
+      <h2>Objetivos</h2>
+      <ul>
+        <li>Visualizar la cantidad de clientes nuevos.</li>
+        <li>Detectar las tendencias de retención por trimestre del año.</li>
+      </ul>
+    </section>
+
+    <section class="my-1">
+      <h2>Herramientas Utilizadas</h2>
+      <ul>
+        <li><strong>Lenguajes / Librerías:</strong> Python (Pandas, Seaborn, Matplotlib, Plotly)</li>
+          <li><strong>Código GitHub:</strong> 
+          <a href="https://github.com/Ronllanoh/Clientes_Retencion/blob/main/Clientes_Cohort_Github.ipynb" 
+            target="_blank" 
+            style="color: black; text-decoration: underline;">
+            Ver Notebook en GitHub
+          </a>
+        </li>
+      </ul>
+    </section>
+    
+    
+
+    <section class="my-1">
+      <h2>Gráfico de Cohort</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <img src="assets\img\cohort-clientes.jpg" alt="Dashboard principal" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="assets\img\cohort-clientes-q.jpg" alt="Detalle de captaciones" class="img-fluid rounded">
+        </div>
+      </div>
+    </section>
+
+    <section class="my-1">
+      <h2>Conclusiones</h2>
+      <p>El análisis de cohortes en el gráfico muestra la retención de clientes que realizaron compras en diferentes trimestres de 2023, 
+        donde se pueden obtener las siguientes conclusiones:</p>
+      <ul>
+        <li>Fuerte caída en la retención</li>
+        <li>Cada cohorte comienza con el 100% en su trimestre de adquisición, donde en los siguientes trimestres, la retención 
+          cae significativamente. Por ejemplo, la cohorte de 2023-T1 pasa de 100% a 37% en T2, luego a 34% en T3 y 36% en T4. 
+          De manera similar, la cohorte de 2023-T2 baja del 100% a 24% en T3 y 26% en T4. La cohorte de 2023-T3 cae al 25% en T4.</li>
+        <li>Patrón de retención relativamente estable.</li>
+        <li>Aunque hay una disminución inicial fuerte, las tasas de retención parecen estabilizarse en valores entre 24% y 36% en 
+          trimestres posteriores. Esto sugiere que hay un grupo de clientes leales que siguen comprando después de la adquisición inicial. 
+          El último trimestre no tiene datos futuros.</li>
+        <li>La cohorte de 2023-T4 solo tiene el 100% de retención porque no hay más trimestres posteriores para medir su caída. 
+          Diferencias entre cohortes:</li>
+        <li>La cohorte de 2023-T1 muestra una mejor retención en trimestres posteriores en comparación con otras cohortes, con valores 
+          cercanos a 34%-36% en los últimos períodos. La cohorte de 2023-T2 y T3 tienen retenciones más bajas en comparación con la de T1, 
+          lo que podría indicar que los clientes adquiridos en esos períodos fueron menos leales o hubo menos incentivos para retenerlos.</li>        
+      </ul>
+    </section>
+    
+  </main>
+
+  <footer class="text-center py-4">
+    <p>&copy; 2025 Ronald Llano - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análisis de Ventas</title>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">DevFolio</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Inicio<br></a></li>
+          <li><a href="index.html #about">Sobre Mí</a></li>
+          <li><a href="index.html #services">Portafolio</a></li>
+          <li><a href="index.html #contact">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <header class="container text-center my-1">
+    <h1>Análisis Exploratorio de Datos de Ventas</h1>
+  </header>
+
+  <main class="container">
+
+    <section class="my-1">
+      <h2>Resumen del Análisis</h2>
+      <p>Análisis de las ventas de un año de una compañía distribuidora de productos de consumo masivo. El 
+        código completo y estructurado se encuentra en Github, donde se analizan cada variable categorica y 
+        numerica. El análisis consta las ventas del año 2024 de cada producto, donde se construye un P&L, y 
+        se obtienen datos relevantes de la venta, como la venta por diferentes canales, análisis de clientes, 
+        condiciones de venta, rentabilidades y márgenes por marca de productos y sucursales, entre otros.
+      </p>
+    </section>
+
+    <section class="my-1">
+      <h2>Objetivos</h2>
+      <ul>
+        <li>Identificar marcas más rentables.</li>
+        <li>Detectar la distribución de la venta por clientes y condición de pago.</li>
+        <li>Analizar las sucursales mas rentables.</li>
+      </ul>
+    </section>
+
+    <section class="my-1">
+      <h2>Herramientas Utilizadas</h2>
+      <ul>
+        <li><strong>Lenguajes / Librerías:</strong> Python (Pandas, Seaborn, Matplotlib, Plotly)</li>
+          <li><strong>Código GitHub:</strong> 
+          <a href="https://github.com/Ronllanoh/EDA_Ventas_Retail/blob/main/EDA%20Facturacion_Portafolio_Github.ipynb" 
+            target="_blank" 
+            style="color: black; text-decoration: underline;">
+            Ver Notebook en GitHub
+          </a>
+        </li>
+      </ul>
+    </section>
+
+
+    <section class="my-1">
+      <h2>Storytelling Análisis Exploratorio de Datos</h2>
+
+      <section class="my-1">
+        <div class="container">
+          <div class="row align-items-center">
+      
+            <!-- Columna izquierda: Gráfico -->
+            <div class="col-md-6 mb-4 mb-md-0">
+              <iframe 
+                src="assets/img/portfolio/grafico-dispersion-marcas.html" 
+                width="100%" 
+                height="550px" 
+                frameborder="0" 
+                allowfullscreen
+                style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+              ></iframe>
+            </div>
+      
+            <!-- Distribución Venta Neta -->
+            <div class="col-md-6">
+              <h2>Dispersión entre Cantidad y Margen Bruto</h2>
+              <p>
+                El análisis de dispersión muestra la relación entre el margen bruto y la cantidad de piezas vendidas por marca. 
+                Cada punto representa una marca, con su respectivo margen y volumen de venta. 
+                Se observa cómo algunas marcas alcanzan altos márgenes con bajo volumen, mientras otras priorizan la cantidad.
+              </p>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+
+
+      <section class="my-5">
+        <div class="container">
+          <div class="row align-items-center">
+      
+            <!-- Columna izquierda: Texto -->
+            <div class="col-md-6 mb-4 mb-md-0">
+              <h2>Venta Normal vs Promociones</h2>
+              <p>
+                El gráfico muestra la distribución de la venta neta diferenciada entre ventas normales y 
+                ventas bajo promoción. Se observa que la gran mayoría de los ingresos provienen de ventas 
+                normales, representando aproximadamente un 93% del total, mientras que las promociones 
+                contribuyen con apenas un 7%. Este análisis destaca la importancia de las ventas estándar 
+                en la estructura de ingresos y sugiere que las promociones, aunque tienen impacto en volumen, 
+                representan una fracción menor en términos de valor neto. Esta información es clave para 
+                definir estrategias de descuentos y campañas promocionales de manera eficiente.
+              </p>
+            </div>
+      
+            <!-- Columna derecha: Gráfico -->
+            <div class="col-md-6">
+              <iframe 
+                src="assets/img/portfolio/grafico-tipo-venta.html" 
+                width="100%" 
+                height="400px" 
+                frameborder="0" 
+                allowfullscreen
+                style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+              ></iframe>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+
+
+      <section class="my-1">
+        <div class="container">
+          <div class="row align-items-center">
+      
+            <!-- Columna izquierda: Gráfico -->
+            <div class="col-md-6 mb-4 mb-md-0">
+              <iframe 
+                src="assets/img/portfolio/grafico-distribucion-grupocliente.html" 
+                width="100%" 
+                height="400px" 
+                frameborder="0" 
+                allowfullscreen
+                style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+              ></iframe>
+            </div>
+      
+            <!-- Distribución Venta Neta -->
+            <div class="col-md-6">
+              <h2>Distribución de la Venta por Grupo de Cliente</h2>
+              <p>
+                El gráfico muestra la distribución del total de venta neta agrupada por tipo de cliente. 
+                Se observa que el segmento "Público" concentra más del 50% de la venta neta, seguido por 
+                "Mayoristas" con cerca del 25%. Otros grupos de clientes, como "Clientes A", "Clientes B" y 
+                "Clientes C", tienen una participación significativamente menor en el total de las ventas.
+                Este análisis permite identificar qué segmentos son estratégicos en la generación de ingresos,
+                facilitando el diseño de estrategias comerciales específicas para maximizar la rentabilidad 
+                en cada grupo.
+              </p>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+
+
+      <section class="my-1">
+        <div class="container">
+          <div class="row align-items-center">
+      
+            <!-- Columna izquierda: Texto -->
+            <div class="col-md-6 mb-4 mb-md-0">
+              <h2>Ventas por Condición de Pago</h2>
+              <p>
+                El gráfico presenta la distribución de la venta neta según las distintas condiciones de 
+                pago ofrecidas a los clientes. Se destaca que más del 59% de las ventas se realizan bajo 
+                crédito a 30 días, mientras que el pago contado representa aproximadamente el 36% del total. 
+                Otras modalidades de crédito a mayor plazo tienen una participación marginal. Este análisis 
+                es clave para entender los plazos de recuperación de ingresos y optimizar la gestión del 
+                flujo de caja, ajustando las políticas de crédito de acuerdo al comportamiento real de los 
+                clientes.
+              </p>              
+            </div>
+      
+            <!-- Columna derecha: Gráfico -->
+            <div class="col-md-6">
+              <iframe 
+                src="assets/img/portfolio/grafico-condicion-pago.html" 
+                width="100%" 
+                height="400px" 
+                frameborder="0" 
+                allowfullscreen
+                style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+              ></iframe>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+
+
+      
+      <section class="my-1 text-center">
+        <h2>Rentabilidad de Sucursales</h2>
+      
+        <div class="d-flex justify-content-center">
+          <iframe 
+            src="assets/img/portfolio/grafico-sucursales.html" 
+            width="1000px" 
+            height="650px" 
+            frameborder="0" 
+            allowfullscreen
+            style="border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);"
+          ></iframe>
+        </div>
+        <p>El gráfico muestra que la distribución de las ventas netas está altamente concentrada en unas 
+          pocas sucursales, mientras que la rentabilidad bruta se mantiene relativamente estable en la 
+          mayoría de ellas. Se destacan sucursales como el Centro de Distribución y el Local B por su 
+          volumen de ventas, mientras que Local F y Local E presentan los mayores porcentajes de rentabilidad.
+          Este análisis permite identificar oportunidades para mejorar la eficiencia en sucursales con 
+          bajo volumen o rentabilidad, y replicar buenas prácticas en las de mejor desempeño.</p>
+      </section>
+
+
+    </section>
+
+
+  </div>
+</div>
+</section>
+
+
+    
+  </main>
+
+  <footer class="text-center py-4">
+    <p>&copy; 2025 Ronald Llano - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
