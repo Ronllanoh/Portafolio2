@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto - P&L Proyectos en Ejecución (BI)</title>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">DevFolio</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Inicio<br></a></li>
+          <li><a href="index.html #about">Sobre Mí</a></li>
+          <li><a href="index.html #services">Portafolio</a></li>
+          <li><a href="index.html #contact">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <header class="container text-center my-1">
+    <h1>Reporte BI P&L Proyectos</h1>
+    <p class="lead">P&L (EERR) de Proyectos con Power BI</p>
+  </header>
+
+  <main class="container">
+
+    <section class="my-1">
+      <h2>Resumen del Proyecto</h2>
+      <p>Este proyecto consistió en el diseño y desarrollo de un dashboard interactivo en Power BI, orientado a visualizar el estado de 
+        resultado por los proyectos que la empresa tiene en ejecución. Se enfocó en métricas reales 2025 vs presupuesto 2025 vs reales 2024.</p>
+    </section>
+
+    <section class="my-1">
+      <h2>Objetivos</h2>
+      <ul>
+        <li>Visualizar el desempeño por proyecto.</li>
+        <li>Detectar variaciones del P&L.</li>
+        <li>Automatizar reportes que antes se realizaban manualmente en Excel.</li>
+      </ul>
+    </section>
+
+    <section class="my-1">
+      <h2>Herramientas Utilizadas</h2>
+      <ul>
+        <li><strong>Power BI:</strong> DAX y Power Query</li>
+        <li><strong>SQL:</strong> Sentencias para consultas de extracción de datos</li>
+        <li><strong>Enlace Directo PBI:</strong> 
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiNTNmOTE0MDItZDllMi00NmJkLWI1OGQtMTZmZTAxYTRiMzQxIiwidCI6IjdhNTk5MDAyLTAwMWMtNDMyYy04NDZlLTFkZGNhOWY2YjI5OSIsImMiOjR9" target="_blank" style="color: black; text-decoration: underline;">
+            Ver Tablero en Power BI
+      </ul>
+    </section>
+    
+    <section class="my-1">
+      <h2>Dashboard Interactivo</h2>      
+      <iframe 
+        title="P&L Proyectos" 
+        width="100%" 
+        height="600" 
+        src="https://app.powerbi.com/view?r=eyJrIjoiNTNmOTE0MDItZDllMi00NmJkLWI1OGQtMTZmZTAxYTRiMzQxIiwidCI6IjdhNTk5MDAyLTAwMWMtNDMyYy04NDZlLTFkZGNhOWY2YjI5OSIsImMiOjR9" 
+        frameborder="0" 
+        allowfullscreen="true">
+      </iframe>
+    </section>
+    
+
+  </main>
+
+  <footer class="text-center py-4">
+    <p>&copy; 2025 Ronald Llano - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
